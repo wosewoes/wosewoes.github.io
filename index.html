@@ -74,6 +74,21 @@
     nav a:nth-child(5):is(:hover,:focus-visible) { color:#f5ff28; background:#204f50; }
     nav a:nth-child(6):is(:hover,:focus-visible) { color:#a400d0; background:#c9f08c; }
     @media(prefers-reduced-motion:reduce) { nav a { transition:none; } }
+
+    /* Phone layout: full-width image, then name, biography, and navigation. */
+    @media (max-width:740px) {
+      .page { display:flex; flex-direction:column; width:100%; margin:0; padding:0 0 30px; }
+      .layout { display:contents; }
+      .gallery { order:0; width:100%; max-width:none; margin:0; transform:none; }
+      .image-frame { width:100%; aspect-ratio:4/3; }
+      .slide img { width:100%; height:100%; object-fit:cover; object-position:center 64%; }
+      .intro { order:1; width:min(100% - 40px,560px); margin:36px auto 0; transform:none; }
+      .intro h1 { margin:0 0 30px; font-size:clamp(36px,9vw,52px); line-height:1.12; text-align:center; transform:none; }
+      .intro .bio { width:100%; max-width:none; margin:0; text-align:left; font-size:14px; line-height:1.6; }
+      nav { order:2; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); justify-items:center; align-items:center; width:min(100% - 40px,560px); min-height:0; margin:40px auto 0; padding:24px 0 8px; gap:8px 12px; background-position:left top; font-size:clamp(10px,3vw,13px); }
+      nav a { display:inline-flex; align-items:center; justify-content:center; min-height:40px; text-align:center; white-space:nowrap; }
+      nav .email-link svg { transform:none; }
+    }
   </style>
 </head>
 <body>
